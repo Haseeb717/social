@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Twitter User Name</th>
+		<th>Tweet</th>
+		<th>Url</th>
+	</tr>
+	<% @tweet_ids = @tweet_ids.take(30) %>
+	<% @tweet_ids.each do |tweet| %>
+		<tr>
+			<td><%= tweet.created_at.to_date %></td>
+			<td><%= tweet.user.name %></td>
+			<td><%= tweet.text[0..100] %></td>
+			<td><a href="<%= 'https://twitter.com'+tweet.uri.path; %>"><%= 'https://twitter.com'+tweet.uri.path; %></a></td>
+		</tr>
+	<% end %>
+</table>
